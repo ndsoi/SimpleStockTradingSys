@@ -1,0 +1,2 @@
+# SimpleStockTradingSys
+web course project
