@@ -1,76 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>注册界面</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!--改下方title，也就是设置标签页上的标题-->
+    <title>注册页面</title>
+    <!--要使用vue，可以用cdn的方式-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" type="text/css" href="./regist.css">
 </head>
+
 <body>
-
-<div id="app">
-  <h1>注册界面</h1>
-  <form @submit.prevent="register">
-    <div>
-      <label for="username">用户名：</label>
-      <input type="text" id="username" v-model="username">
+    <!--先布局再vue-->
+    <div id="app">
+        <h1>注册表</h1>
+        <form @submit.prevent="register">
+            <div class="col">
+                <div class="info">
+                    <label for="username">用户名</label>
+                    <label for="password">密码</label>
+                    <label for="comfirmPassword">确认密码</label>
+                </div>
+                <div class="input">
+                    <input type="text" id="username" v-model="username">
+                    <input type="password" id="password" v-model="password">
+                    <input type="password" id="confirmPassword" v-model="confirmPassword">
+                </div>
+            </div>
+            <!--表单提交的按钮显示-->
+            <div class="row">
+                <button type="submit">确认按钮</button>
+            </div>
+        </form>
+        <p>{{message}}</p>
     </div>
-    <div>
-      <label for="password">密码：</label>
-      <input type="password" id="password" v-model="password">
-    </div>
-    <div>
-      <label for="confirmPassword">确认密码：</label>
-      <input type="password" id="confirmPassword" v-model="confirmPassword">
-    </div>
-    <button type="submit">注册</button>
-  </form>
-  <p v-if="message">{{ message }}</p>
-</div>
-
-<script>
-  const { createApp } = Vue
-  createApp({
-    data(){
-      return {
-      username: '',
-      password: '',
-      confirmPassword: '',
-      message: '',}
-
-    },
-    methods:{
-      register: function() {
-      if (this.password !== this.confirmPassword) {
-        this.message = '密码与确认密码不一致';
-      } else {
-        // 这里可以添加发送注册请求的逻辑，比如使用axios库发送POST请求到服务器
-        // 根据服务器返回的结果更新message
-        // 调用服务端的json
-        fetch(`http://127.0.0.1:12345/regist?username=${this.username}&pwd=${this.password}`)
-    .then((response) => response.json())
-    .then((data) => {
-
-        if (data === true) {
-            this.message = '注册成功';
-        } else {
-            this.message = '注册失败，请重试';
-        }
-    })
-    .catch((error) => {
-        console.error('请求失败：', error);
-        this.message = '请求失败，请重试';
-    });
-
-
-        
-      }
-    }
-  
-    }
-
-  }).mount("#app")
-</script>
-
+    <script src="./regist.js">
+    </script>
 </body>
+
 </html>
