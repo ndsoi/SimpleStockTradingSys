@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>股票交易首页</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" type="text/css" href="./StockTrade.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="navi">
+            <div class="navibase">
+                <div id="logo">logo</div>
+             
+                    <div v-if="user === null" class="user_info">
+                        <a class="regist" href="./regist.html">注册</a>
+                        <a class="login" href="./login.html">登录</a>
+                    </div>
+                    <div v-else class="user_info">
+                        <p>用户名{{ user }}</p>
+                        <button class="logout" @click="logout">注销</button> 
+                    </div>
+               
+            </div>
+            <div class="bar"></div>
+            <div class="block_navi_bg">
+                <div class="block_navi">
+                    <div class="block_general_info">
+                        <div class="big_title">
+                            <h1>大盘行情</h1>
+                        </div>
+                        <div class="time">
+                            <div class="updatetime">
+                                {{showtime}}
+                            </div>
+                            <div class="countdown">
+                                <!--    {{countdown/1000}}s -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <input type="checkbox" id="Shen" value="深" v-model="picked" />
+                        <label>深</label>
+                        <input type="checkbox" id="Hu" value="沪" v-model="picked" />
+                        <label>沪</label>
+                        <input type="checkbox" id="Chuang" value="创" v-model="picked" />
+                        <label>创</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navibg">
+        </div>
+        <div class="content">
+            <div class="table_zone">
+                <table>
+                    <thead class="table_cols">
+                        <th>代码</th>
+                        <th>名称</th>
+                        <th>最新价格</th>
+                        <th>涨跌幅</th>
+                        <th>涨跌价</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="stock in filterStocks" @click="select(stock.Code)" :key="stock.id" @dblclick="redirectDetail(stock.Code)" :class="{  'no_select': selectedStockId !== stock.Code,
+                    'selected': selectedStockId === stock.Code}">
+                            <td class="code_col">{{stock.Code}}</td>
+                            <td class="name_col">{{stock.Name}}</td>
+                            <td class="price_col">{{stock.Price}}</td>
+                            <td class="limit_col">{{stock.pricelimit}}</td>
+                            <td class="pricelimit_col">{{stock.limitprice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</body>
+<script type="text/javascript" src="./StockTrade.js"></script>
+
+</html>

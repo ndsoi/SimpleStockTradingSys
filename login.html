@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <title>登陆界面</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" type="text/css" href="./login.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>登陆界面</h1>
+        <form @submit.prevent="login">
+
+            <div class="col">
+                <div class="info">
+                <label for="username">用户名：</label>
+                <label for="password">密码：</label>
+                </div>
+          
+                <div class="input">
+
+                <input type="text" id="username" v-model="username">
+                <input type="password" id="password" v-model="password">
+            </div>
+            </div>
+            <div class="row">
+            <button type="submit">登陆</button>
+            </div>
+        </form>
+        <p v-if="message">{{ message }}</p>
+    </div>
+    <script src="./login.js">
+    
+    </script>
+</body>
+
+</html>
