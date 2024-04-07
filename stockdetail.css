@@ -1,0 +1,103 @@
+
+.chart-container{
+	position: relative; 
+	height:69vh; 
+	width:70vw;
+	top: 150px;
+	left: 200px;
+}
+
+.navi{
+    position: fixed;
+    background-color: lightblue;
+    left: 2px;
+    right: 2px;  
+    top: 0px;
+}
+
+.navibase{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    height: 50px;
+}
+
+#logo{
+    margin-left: 20px;
+}
+
+.user_info{
+    display: flex;
+    flex-direction: row;
+    margin-right: 200px;
+    margin-left: auto;
+}
+
+.regist{
+    margin: 20px;
+}
+
+.login{
+    margin:20px;
+}
+
+.logout{
+    margin-left: 20px;
+    margin-bottom: 0px;
+}
+
+.bar{
+    border-color: red;
+    border-width: 3px;
+    border-style: solid; 
+}
+
+.vbar{
+	border-right: solid;
+	border-color: rgb(237,125,49);
+	margin: 3px;
+	border-width: 2px;
+}
+
+/*按钮样式*/
+.changeMenu{
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	top:130px;
+	left: 200px;
+}
+.cBtn{
+	font-size: 20px;
+	border: none;
+	background-color: white;
+	border-bottom: solid white;
+/*	border-color: white;*/
+
+}
+
+.ccBtn{
+	font-size: 24px;
+	border:none;
+	border-bottom: solid;
+	border-color: red;
+	background-color: white;
+
+}
+
+.transsaction{
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	top:100px;
+	right: 250px;
+}
+
+.TBtn{
+	margin: 15px;
+	padding: 10px;
+	font-size: 18px;
+	background-color: rgb(237,125,49);
+	color: white;
+	border-radius: 10px;
+}

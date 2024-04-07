@@ -29,7 +29,7 @@ const { createApp } = Vue
                         if (data === true) {
                             this.message = "注册成功!";
 
-                            setTimeout(()=>{window.location.href='file:///C:/Users/86139/Documents/WeChat%20Files/wxid_xl2mbizdzgms22/FileStorage/File/2024-03/%E6%A8%A1%E6%8B%9F%E6%9C%8D%E5%8A%A1%E7%AB%AFv0.4/%E6%A8%A1%E6%8B%9F%E6%9C%8D%E5%8A%A1%E7%AB%AFv0.4/login_cp.html?';
+                            setTimeout(()=>{window.location.href='./login.html?';
                         },2000)
 
                         } else {

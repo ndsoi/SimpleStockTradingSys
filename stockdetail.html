@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>个股走势图</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stockdetail.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="navi">
+            <div class="navibase">
+                <div id="logo">logo</div>
+                <div v-if="user === 'null'" class="user_info">
+                    <a class="regist" href="./regist.html">注册</a>
+                    <a class="login" href="./login.html">登录</a>
+                </div>
+                <div v-else class="user_info">
+                    <p>用户名{{ user }}</p>
+                    <button class="logout" @click="logout">注销</button>
+                </div>
+            </div>
+            <div class="bar"></div>
+        </div>
+        <div class="changeMenu">
+            <button :class="{'cBtn':mode!==1,'ccBtn':mode===1}" @click="update(1)">实时</button>
+            <div class="vbar"></div>
+            <button :class="{'cBtn':mode!==12,'ccBtn':mode===12}" @click="update(12)">1分钟</button>
+                        <div class="vbar"></div>
+            <button :class="{'cBtn':mode!==120,'ccBtn':mode===120}" @click="update(120)">10分钟</button>
+        </div>
+        <div class="transsaction">
+            <button class="TBtn" @click="buy">买入</button>
+            <button class="TBtn" @click="sell">卖出</button>
+        </div>
+    </div>
+    <div class="chart-container">
+        <canvas id="Chart"></canvas>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.0/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@1.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script> <!-- 引入 Chart.js 的日期适配器 -->
+<!--十字线-->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair@1.2.0"></script>
+<script src="./stockdetail.js"></script>
+
+</html>

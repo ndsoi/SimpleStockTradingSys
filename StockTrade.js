@@ -4,6 +4,7 @@ const userid = urlParams.get('user');
 
 
 
+
 const { createApp } = Vue
 createApp({
     data() {
@@ -98,7 +99,7 @@ createApp({
 
     },
     redirectDetail(stockcode){
-    	window.location.href = `cp_stocksdetail.html?code=${stockcode}`;
+    	window.location.href = `test_chart2.html?code=${stockcode}&user=${userid}`;
     },
     select(stockId){
         this.selectedStockId = stockId;
