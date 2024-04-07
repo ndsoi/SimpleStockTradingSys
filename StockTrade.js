@@ -99,7 +99,7 @@ createApp({
 
     },
     redirectDetail(stockcode){
-    	window.location.href = `test_chart2.html?code=${stockcode}&user=${userid}`;
+    	window.location.href = `stockdetail.html?code=${stockcode}&user=${userid}`;
     },
     select(stockId){
         this.selectedStockId = stockId;
