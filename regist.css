@@ -8,7 +8,7 @@ body{
 	width: 500px;
 	margin-top: 140px; 
 
-	background-color: rgb(242,242,242);
+	background-color: #fdf3eb;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -70,7 +70,7 @@ form .row{
 
 /*按钮样式*/
 form .row button{
-	background-color:rgb(68,114,196); 
+	background-color:#f19654; 
 
 	width: 120px;
 	height: 50px;

@@ -1,0 +1,139 @@
+
+.bar{
+
+    border-color: red;
+    border-width: 3px;
+    border-style: solid; 
+}
+
+
+.navibg{
+    height: 100%;
+    min-height: 300px;
+}
+
+.obey{
+    height: 500px;
+    background-color: lightgreen;
+}
+
+.MoneyInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.MoneyInfo h3{
+    align-items: center;
+    margin: 20px;
+}
+
+.numdetail{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.numdetail p{
+    margin-top: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+.block_navi_bg{
+    background-color: white;
+
+}
+
+.block_navi{
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: white;
+
+}
+
+.block_general_info{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.block_general_info button{
+    border:none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+
+
+.content
+{
+    display: flex;
+    justify-content: center;
+
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.min_content
+{
+     display: flex;
+    justify-content: center;
+
+    margin-left: 300px;
+    margin-right: 300px;
+}
+th,td{
+    width: 150px;
+    border: solid;
+    border-width: 1px;
+}
+
+td{
+    /*表格内容居中*/
+    text-align: center;
+}
+
+
+
+.selected{
+    background-color: red;
+
+}
+
+.no_select{
+    background-color: white;
+ 
+}
+
+.blockselected{
+    background-color: rgb(237,125,49);
+/*    background-color: #d6742e;*/
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+/* 查看交易记录时的筛选框*/
+.findblock{
+
+    margin-left:300px;
+    margin-right :auto; 
+
+}
+
+.findblock button{
+    font-size:18px; 
+    margin-top:35px;
+}
+

@@ -1,0 +1,227 @@
+.formcontainer
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 100px;
+	margin-top: 40px;
+	margin-bottom: 0px;
+}
+
+#form{
+	width: 500px;
+	height: 600px;
+	background-color: white;
+	border:solid;
+}
+
+#head{
+	background-color: #ED7D31;/*rgb(68,114,196);*/
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	min-height: 70px;
+	color: white;
+	font-size: 24px;
+}
+
+#transstock{
+	margin-right:20px;
+}
+
+#transuser{
+	margin-left: 20px;
+}
+
+#body{
+	justify-content: center;
+	align-items: center;
+}
+
+.TransType{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	border-bottom: solid 5px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.TransBtn{
+	font-size: 24px;
+	margin-left: 40px;
+	margin-right: 40px;
+	padding: 8px;
+	margin-bottom: -1px;
+	padding-left: 50px;
+	padding-right: 50px;
+	border:solid 2px;
+	border-radius: 10px;
+	background-color: white;
+/*	padding-top: 15px;
+	padding-bottom: 15px; */
+
+
+}
+.STransBtn
+{
+	font-size: 24px;
+	margin-left: 40px;
+	margin-right: 40px;
+	padding: 8px;
+	margin-bottom: -1px;
+	padding-left: 50px;
+	padding-right: 50px;
+	border:solid 2px;
+	border-radius: 10px;
+	border-color: black;
+	/*被选择的交易类型*/
+	background-color: #ED7D31;/*rgb(68,114,196);*/
+	color: white;
+
+/*	padding-top: 15px;
+	padding-bottom: 15px; */
+
+}
+
+.TransBtn:hover{
+	background-color: #f2a065;
+	color: white;
+	border-color: black;
+}
+
+.content{
+
+	justify-content: center;
+	align-items: center;
+	margin-top: 60px;
+}
+
+.content ul li{
+	list-style-type: none;
+	margin: 30px;
+	margin-left: 100px;
+	font-size: 22px;
+}
+
+.content ul li label{
+	margin-right: 60px;
+}
+
+.content ul li input{
+	height: 40px;
+	width: 150px;
+	border:solid;
+	border-radius: 3px;
+	padding: 2px;
+	font-size: 25px;
+}
+
+.bottom_button{
+	display: flex;
+	flex-direction: row;
+
+	padding-right: 10px;
+	margin-top: 70px;
+}
+
+#cancel,#confirm,.back{
+	border-color: black;
+	border-radius: 50px;
+	margin-left: 20px;
+	width:100px;
+	height: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #ED7D31;/*rgb(68,114,196);*/
+	font-size: 20px;
+	color: white;
+}
+
+#cancel:hover{
+	background-color: white;
+	color: black;
+}
+
+#confirm:hover{
+	background-color: white;
+	color: black;
+}
+
+.bottom{
+	display: flex;
+	flex-direction: row;
+	margin: 60px;
+
+}
+
+#bottom_time{
+	margin-top: 30px;
+
+}
+
+#curtime{
+	border-bottom:solid red 2px;
+	margin-right: 60px;
+}
+
+
+/*交易结果页*/
+.Rescontainer{
+	display: flex;
+	flex-direction: column;;
+	justify-content: center;
+	align-items: center;
+	margin: 100px;
+	margin-top: 40px;
+
+}
+.Res{
+	width: 500px;
+	height: 600px;
+	background-color: white;
+	border:solid;
+}
+.ResTitle
+{
+	margin:30px;
+	height: 100px;
+	color: white;
+	background-color: #d6742e;
+
+	display: flex;
+	font-size: 32px; 
+	align-items: center;
+	justify-content: center;
+}
+
+.FailReason{
+	margin:20px;
+	height: 100px;
+	border:solid #ee8133 2px;
+
+	display: flex;
+	font-size: 32px; 
+	align-items: center;
+	justify-content: center;
+}
+
+.detailInfo{
+	margin:40px;
+}
+
+.back{
+
+	position: fixed;
+	left: 820px;
+	top: 550px;
+
+}
+
+.back:hover{
+	background-color: white;
+	color: black;
+}

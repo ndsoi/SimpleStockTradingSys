@@ -33,6 +33,28 @@ var StaticInfo = {'000069': "华侨城A",
 '603288': "海天味业",}
 
 
+function formatDate(date) {  
+    var year = date.getFullYear();  
+  
+    var month = (1 + date.getMonth()).toString();  
+    month = month.padStart(2, '0');  
+  
+    var day = date.getDate().toString();  
+    day = day.padStart(2, '0');  
+  
+    var hours = date.getHours().toString();  
+    hours = hours.padStart(2, '0');  
+  
+    var minutes = date.getMinutes().toString();  
+    minutes = minutes.padStart(2, '0');  
+  
+    var seconds = date.getSeconds().toString();  
+    seconds = seconds.padStart(2, '0');  
+  
+    return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;  
+} 
+
+
 // 传进来的用户名
 var username = cururl.get('user');
 
@@ -61,13 +83,10 @@ const chart = new Chart(ctx, {
                 borderWidth: 1,
                 fill: false,
                 tension: 0.2,
-
             }
         ],
-
     },
     options: {
-
         plugins: {
             // 注册并使用 crosshairs 插件  
             tooltip: {
@@ -101,10 +120,7 @@ const chart = new Chart(ctx, {
             },
             y1: {
                 position: "right",
-
             },
-
-
         }
     }
 });
@@ -112,7 +128,7 @@ const chart = new Chart(ctx, {
 
 
 
-
+// var price = 10;
 
 const { createApp } = Vue;
 createApp({
@@ -121,7 +137,6 @@ createApp({
             user: username,
             mode: chose,
             message: "hello",
-
         }
     },
     methods: {
@@ -129,17 +144,25 @@ createApp({
             chose = time;
             this.mode = chose,
                 this.message = "点击了" + time;
+            update();
         },
         buy: function() {
             if (this.user != 'null') {
-
+                var now = new Date()
+                now = formatDate(now);
+                const url = `StockTrans.html?user=${this.user}&direction=buy&stockname=${StaticInfo[stockcode]}&stockcode=${stockcode}&price=${price}&time=${now}`;
+                window.location.href = url;
             } else {
                 alert('请先登陆');
             }
         },
         sell: function() {
             if (this.user != 'null') {
-
+                var now = new Date()
+                now = formatDate(now);
+                const url = `StockTrans.html?user=${this.user}&direction=sell&stockname=${StaticInfo[stockcode]}&stockcode=${stockcode}&price=${price}&time=${now}`;
+              
+                window.location.href = url;
             } else {
                 alert('请先登陆');
             }
@@ -156,7 +179,23 @@ createApp({
             }).catch((error) => {
                 alert('注销失败，请重试!');
             });
+        },
+         toPage:function(addr){
+        window.location.href = addr;
+    },
+        toUserPage:function(){
+        window.location.href = `UserPage.html?user=${this.user}`;
+
+    },
+        backhome:function(){
+        if(this.user!=" ")
+        {
+            window.location.href = `StockTrade.html?user=${this.user}`;
         }
+        else{
+            window.location.href = `StockTrade.html`;
+        }
+    }
 
 
     },
@@ -180,6 +219,8 @@ function update() {
 
             const labels = generateTimeSequence(now, 5, l);
             chosePresent(labels, data, chose, chart);
+            price = data[data.length-1];
+
             // 更新图表显示  
             chart.update();
 
@@ -215,10 +256,11 @@ function generateTimeSequence(start, interval, count) {
     // 共产生count个时间节点
     const sequence = [];
     for (let i = 0; i < count; i++) {
-        sequence.unshift(new Date(start.getTime() - (i * interval * 1000))); // 使用unshift将新元素添加到数组的开始  
+        sequence.unshift(new Date(start.getTime() - (i * interval*1000))); // 使用unshift将新元素添加到数组的开始  
     }
     return sequence;
 }
 
+update();
 // 设置定时器，每3秒调用一次updateChart函数  
 setInterval(update, 5000);

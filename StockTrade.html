@@ -5,20 +5,21 @@
     <title>股票交易首页</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" type="text/css" href="./StockTrade.css">
+    <link rel="stylesheet" type="text/css" href="./NaviBase.css">
 </head>
 
 <body>
     <div id="app">
         <div class="navi">
             <div class="navibase">
-                <div id="logo">logo</div>
+                <div id="logo"><img src="./logo.png" title="财惠世界" @click="backhome"></img></div>
              
                     <div v-if="user === null" class="user_info">
-                        <a class="regist" href="./regist.html">注册</a>
-                        <a class="login" href="./login.html">登录</a>
+                        <button class="regist" @click="toPage('./regist.html')">注册 </button>
+                        <button class="login" @click="toPage('./login.html')">登录</button>
                     </div>
                     <div v-else class="user_info">
-                        <p>用户名{{ user }}</p>
+                        <button class="textBtn" @click="toUserPage">用户名{{ user }}</button>
                         <button class="logout" @click="logout">注销</button> 
                     </div>
                
@@ -35,7 +36,7 @@
                                 {{showtime}}
                             </div>
                             <div class="countdown">
-                                <!--    {{countdown/1000}}s -->
+                                   {{countdown/1000}}s
                             </div>
                         </div>
                     </div>
@@ -49,7 +50,9 @@
                     </div>
                 </div>
             </div>
+            <div class="bar"></div>
         </div>
+
         <div class="navibg">
         </div>
         <div class="content">

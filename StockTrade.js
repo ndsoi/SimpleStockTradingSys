@@ -15,7 +15,7 @@ createApp({
             4.71,23.97,42.84,34.34,168.2,34.95,43.12,15.02,12.07,22.03],
             time :{'year':'0','month':'0','day':'0',hours:'0','minutes':'0','seconds':'0'},
             showtime:'',
-            countdown:3000,
+            countdown:5000,
 
           	// 版块选择
           	picked:['深','沪','创'],
@@ -49,7 +49,6 @@ createApp({
     methods:{
         update: function() {
         const url = 'http://127.0.0.1:12345/getMarketPrice';
-
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
@@ -61,7 +60,7 @@ createApp({
                 this.time['minutes'] = now.getMinutes();
                 this.time['seconds'] = now.getSeconds();
 
-                this.countdown = 3000;
+                this.countdown = 5000;
 
                 // 为美观补一下一位数
                 if (this.time['minutes'].toString().length<2) {
@@ -120,6 +119,22 @@ createApp({
         }).catch((error)=>{
             alert('注销失败，请重试!');
         });
+    },
+    toPage:function(addr){
+        window.location.href = addr;
+    },
+    toUserPage:function(){
+        window.location.href = `UserPage.html?user=${userid}`;
+
+    },
+    backhome:function(){
+        if(this.user!=" ")
+        {
+            window.location.href = `StockTrade.html?user=${this.user}`;
+        }
+        else{
+            window.location.href = `StockTrade.html`;
+        }
     }
 
         
@@ -128,7 +143,7 @@ createApp({
         // 每隔一段时间调用update函数，例如每3秒钟
         setInterval(() => {
             this.update();
-        }, 3000); // 3000 毫秒 = 3 秒
+        }, 5000); // 3000 毫秒 = 3 秒
         setInterval(()=>{
             this.updatecountdown();
         },100);

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>股票交易表单</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" type="text/css" href="./StockTrans.css">
+</head>
+
+<body>
+    <div id="formapp">
+        <div v-if="TransRes===-1" class="formcontainer">
+            <div id="form">
+                <div id="head">
+                    <div id="transstock">{{stockname}}-{{stockcode}}</div>
+
+                    <div id="transuser">交易人:{{transuser}}</div>
+                </div>
+                <div class="bar"></div>
+                <div id="body">
+                    <div class="TransType">
+                        <button :class="{'TransBtn':direction!=='buy','STransBtn':direction==='buy'}" @click="changeDirect('buy')">买</button>
+                        <button :class="{'TransBtn':direction!=='sell','STransBtn':direction==='sell'}" @click="changeDirect('sell')">卖</button>
+                    </div>
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <label>单价</label>
+                                {{price}}
+                            </li>
+                            <li>
+                                <label>数量</label>
+                                <input type="num" v-model="num">
+                            </li>
+                            <li>
+                                <label>总价</label>
+                                {{sum}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom">
+                        <div id="bottom_time">
+                            <p>填单时间</p>
+                            <p id="curtime">{{time}}</p>
+                        </div>
+                        <div class="bottom_button">
+                            <button id="cancel" @click="cancel()">取消</button>
+                            <button id="confirm" @click="submit()">确认</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-else="TransRes!==-1" id="resultInfo" class="Rescontainer">
+            <div class="Res">
+            <div class="ResTitle">
+                <p>{{TransTitle}}</p></div>
+            <div :class="{'FailReason':(TransRes!=1&&TransRes!==2)}"><p>{{Reason}}<p></div>
+            <div class="detailInfo">
+                <h2>详情</h2>
+                <ul class="Resul">
+                    <li>填表时间:{{time}}</li>
+                    <li>提交时间:{{TransTime}}</li>
+                    <li>交易类型:{{direction}}</li>
+                    <li>名称-代码:{{stockname}}-{{stockcode}}</li>
+                    <li>单价:{{price}}</li>
+                    <li>数量:{{num}}</li>
+                    <li>金额:{{price}}</li>
+                    
+                </ul>
+
+            </div>
+             <button class="back" @click="cancel()">返回</button>
+        </div>
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./StockTrans.js"></script>
+
+</html>

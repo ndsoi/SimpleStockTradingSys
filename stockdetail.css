@@ -7,44 +7,7 @@
 	left: 200px;
 }
 
-.navi{
-    position: fixed;
-    background-color: lightblue;
-    left: 2px;
-    right: 2px;  
-    top: 0px;
-}
 
-.navibase{
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-    height: 50px;
-}
-
-#logo{
-    margin-left: 20px;
-}
-
-.user_info{
-    display: flex;
-    flex-direction: row;
-    margin-right: 200px;
-    margin-left: auto;
-}
-
-.regist{
-    margin: 20px;
-}
-
-.login{
-    margin:20px;
-}
-
-.logout{
-    margin-left: 20px;
-    margin-bottom: 0px;
-}
 
 .bar{
     border-color: red;
